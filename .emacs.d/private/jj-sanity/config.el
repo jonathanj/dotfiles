@@ -9,3 +9,6 @@
 ;; https://emacs.stackexchange.com/questions/31438/possible-not-to-use-undo-tree-in-evil-mode
 ;; https://github.com/syl20bnr/spacemacs/issues/298
 (setq undo-tree-enable-undo-in-region nil)
+
+;; Set right option to be "Option", so that symbols can be inserted.
+(setq-default mac-right-option-modifier nil)

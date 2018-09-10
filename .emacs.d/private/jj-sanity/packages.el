@@ -4,6 +4,7 @@
     smartparens
     (python :location built-in)
     spaceline-all-the-icons
+    neotree
     ))
 
 
@@ -22,6 +23,11 @@
               ;; Turn off (pointless) "minimap" feature.
               (spaceline-toggle-all-the-icons-hud-off)
               )))
+
+
+(defun jj-sanity/post-init-neotree ()
+  ;; Don't prompt when changing the neotree root.
+  (setq neo-force-change-root t))
 
 
 (defun jj-sanity/post-init-python ()

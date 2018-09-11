@@ -27,27 +27,29 @@
 (global-unset-key [swipe-right])
 
 (when (spacemacs/system-is-mac)
+  (setq mac-command-modifier 'super)
+
   ;; Make Cmd movement keys work like the rest of macOS.
-  (global-set-key (kbd "<H-left>") 'move-beginning-of-line)
-  (global-set-key (kbd "<H-right>") 'move-end-of-line)
-  (global-set-key (kbd "<H-up>") 'beginning-of-buffer)
-  (global-set-key (kbd "<H-down>") 'end-of-buffer)
+  (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
+  (global-set-key (kbd "<s-right>") 'move-end-of-line)
+  (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+  (global-set-key (kbd "<s-down>") 'end-of-buffer)
 
   ;; Killing a split/window is annoying, rather just kill the buffer.
-  (global-set-key (kbd "<H-w>") 'spacemacs/kill-this-buffer)
+  (global-set-key (kbd "s-w") 'spacemacs/kill-this-buffer)
 
   ;; Indent text with Cmd-] in any mode, preserving the block in visual mode.
-  (define-key evil-normal-state-map (kbd "H-]") 'evil-shift-right-line)
-  (define-key evil-insert-state-map (kbd "H-]") 'evil-shift-right-line)
-  (define-key evil-visual-state-map (kbd "H-]")
+  (define-key evil-normal-state-map (kbd "s-]") 'evil-shift-right-line)
+  (define-key evil-insert-state-map (kbd "s-]") 'evil-shift-right-line)
+  (define-key evil-visual-state-map (kbd "s-]")
     (lambda nil
       (interactive)
       (progn (call-interactively (quote
                                   evil-shift-right)) (execute-kbd-macro "gv"))))
   ;; Dedent text with Cmd-[ in any mode, preserving the block in visual mode.
-  (define-key evil-normal-state-map (kbd "H-[") 'evil-shift-left-line)
-  (define-key evil-insert-state-map (kbd "H-[") 'evil-shift-left-line)
-  (define-key evil-visual-state-map (kbd "H-[")
+  (define-key evil-normal-state-map (kbd "s-[") 'evil-shift-left-line)
+  (define-key evil-insert-state-map (kbd "s-[") 'evil-shift-left-line)
+  (define-key evil-visual-state-map (kbd "s-[")
     (lambda nil
       (interactive)
       (progn (call-interactively (quote

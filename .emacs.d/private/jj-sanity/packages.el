@@ -14,15 +14,11 @@
     (simpleclip-mode 1)))
 
 
-(defun jj-sanity/init-spaceline-all-the-icons ()
-  (use-package spaceline-all-the-icons
-    :after spaceline
-    :config (progn
-              (spaceline-all-the-icons-theme)
-              (spaceline-toggle-all-the-icons-region-info-off)
-              ;; Turn off (pointless) "minimap" feature.
-              (spaceline-toggle-all-the-icons-hud-off)
-              )))
+(defun jj-sanity/post-init-spaceline-all-the-icons ()
+  (spaceline-all-the-icons-theme)
+  (spaceline-toggle-all-the-icons-region-info-off)
+  ;; Turn off (pointless) "minimap" feature.
+  (spaceline-toggle-all-the-icons-hud-off))
 
 
 (defun jj-sanity/post-init-neotree ()

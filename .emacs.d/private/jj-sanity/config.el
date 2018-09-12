@@ -12,3 +12,14 @@
 
 ;; Set right option to be "Option", so that symbols can be inserted.
 (setq-default mac-right-option-modifier nil)
+
+;; https://github.com/syl20bnr/spacemacs/issues/5634#issuecomment-204340185
+(defun spacemacs/objective-c-file-p ()
+  (and buffer-file-name
+       (string= (file-name-extension buffer-file-name) "m")
+       (re-search-forward "@interface"
+                          magic-mode-regexp-match-limit t)))
+
+(add-to-list 'magic-mode-alist
+             (cons #'spacemacs/objective-c-file-p #'objc-mode))
+

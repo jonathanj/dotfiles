@@ -23,3 +23,6 @@
 (add-to-list 'magic-mode-alist
              (cons #'spacemacs/objective-c-file-p #'objc-mode))
 
+;; Indent case labels in switch statements.
+(c-set-offset 'case-label '+)
+

@@ -25,4 +25,6 @@
 
 ;; Indent case labels in switch statements.
 (c-set-offset 'case-label '+)
+;; Don't line up arguments with the parens.
+(c-set-offset 'arglist-intro '+)
 

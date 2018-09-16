@@ -4,8 +4,8 @@
     smartparens
     (python :location built-in)
     spaceline-all-the-icons
-    neotree
     doom-themes
+    neotree
     ))
 
 

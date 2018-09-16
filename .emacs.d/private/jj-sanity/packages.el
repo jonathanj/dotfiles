@@ -1,6 +1,7 @@
 (defconst jj-sanity-packages
   '(simpleclip
     web-mode
+    flycheck
     smartparens
     (python :location built-in)
     spaceline-all-the-icons
@@ -61,5 +62,16 @@
   ;; JSX in `web-mode`
   (setq web-mode-content-types-alist
         '(("jsx" . "\\.jsx?\\'")))
+  ;; JS indent of 2 spaces.
   (setq web-mode-markup-indent-offset 2)
+  ;; Use `web-mode` for Javascript.
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)))
+
+
+(defun jj-sanity/post-init-flycheck ()
+  (use-package flycheck
+    :defer t
+    :config
+    (progn
+      ;; Support eslint checker in web-mode.
+      (flycheck-add-mode 'javascript-eslint 'web-mode))))

@@ -1,0 +1,12 @@
+(defun jj-clojure/ggtags-bounds-of-tag ()
+  ""
+  (when-let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (let ((s      (car bounds))
+          (e      (cdr bounds))
+          (text   (thing-at-point 'symbol t)))
+      (cons (if (string-prefix-p "." text)
+                (1+ s)
+                s)
+            (if (string-suffix-p "." text)
+                (1- e)
+              e)))))

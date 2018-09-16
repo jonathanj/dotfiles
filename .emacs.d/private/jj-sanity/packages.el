@@ -37,7 +37,10 @@
   ;; Don't prompt when changing the neotree root.
   (setq neo-force-change-root t)
   ;; Don't show hidden/ignored files by default.
-  (setq neo-show-hidden-files nil))
+  (setq neo-show-hidden-files nil)
+  ;; Make M-0 open neotree at the root of projects, if available.
+  (spacemacs/set-leader-keys "0" #'jj-sanity/neotree-show-project-dir)
+  (define-key winum-keymap (kbd "M-0") #'jj-sanity/neotree-show-project-dir))
 
 
 (defun jj-sanity/post-init-python ()

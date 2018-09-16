@@ -5,7 +5,19 @@
     (python :location built-in)
     spaceline-all-the-icons
     neotree
+    doom-themes
     ))
+
+
+(defun jj-sanity/init-doom-themes ()
+  (use-package doom-themes
+    :config
+    (progn
+      ;; Use bold in doom-themes.
+      (setq doom-themes-enable-bold t)
+      ;; Use italic in doom-themes.
+      (setq doom-themes-enable-italic t)
+      (doom-themes-neotree-config))))
 
 
 (defun jj-sanity/init-simpleclip ()
@@ -23,7 +35,9 @@
 
 (defun jj-sanity/post-init-neotree ()
   ;; Don't prompt when changing the neotree root.
-  (setq neo-force-change-root t))
+  (setq neo-force-change-root t)
+  ;; Don't show hidden/ignored files by default.
+  (setq neo-show-hidden-files nil))
 
 
 (defun jj-sanity/post-init-python ()

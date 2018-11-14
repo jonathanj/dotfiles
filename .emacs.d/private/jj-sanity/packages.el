@@ -3,7 +3,7 @@
     web-mode
     smartparens
     (python :location built-in)
-    spaceline-all-the-icons
+    ;;spaceline-all-the-icons
     neotree
     ))
 

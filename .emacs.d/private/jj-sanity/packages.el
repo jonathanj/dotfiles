@@ -1,11 +1,24 @@
 (defconst jj-sanity-packages
   '(simpleclip
     web-mode
+    flycheck
     smartparens
     (python :location built-in)
     ;;spaceline-all-the-icons
+    doom-themes
     neotree
     ))
+
+
+(defun jj-sanity/init-doom-themes ()
+  (use-package doom-themes
+    :config
+    (progn
+      ;; Use bold in doom-themes.
+      (setq doom-themes-enable-bold t)
+      ;; Use italic in doom-themes.
+      (setq doom-themes-enable-italic t)
+      (doom-themes-neotree-config))))
 
 
 (defun jj-sanity/init-simpleclip ()
@@ -23,7 +36,14 @@
 
 (defun jj-sanity/post-init-neotree ()
   ;; Don't prompt when changing the neotree root.
-  (setq neo-force-change-root t))
+  (setq neo-force-change-root t)
+  ;; Don't show hidden/ignored files by default.
+  (setq neo-show-hidden-files nil)
+  ;; Hide the neotree modeline.
+  (setq neo-mode-line-type 'none)
+  ;; Make M-0 open neotree at the root of projects, if available.
+  (spacemacs/set-leader-keys "0" #'jj-sanity/neotree-show-project-dir)
+  (define-key winum-keymap (kbd "M-0") #'jj-sanity/neotree-show-project-dir))
 
 
 (defun jj-sanity/post-init-python ()
@@ -42,5 +62,16 @@
   ;; JSX in `web-mode`
   (setq web-mode-content-types-alist
         '(("jsx" . "\\.jsx?\\'")))
+  ;; JS indent of 2 spaces.
   (setq web-mode-markup-indent-offset 2)
+  ;; Use `web-mode` for Javascript.
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)))
+
+
+(defun jj-sanity/post-init-flycheck ()
+  (use-package flycheck
+    :defer t
+    :config
+    (progn
+      ;; Support eslint checker in web-mode.
+      (flycheck-add-mode 'javascript-eslint 'web-mode))))

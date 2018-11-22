@@ -56,6 +56,8 @@ function fish_prompt --description 'Write out the prompt'
         echo -s -n " on " $git_info
     end
 
+    # Clear to the end of the line, to avoid "ghosting" when navigating the directory stack.
+    tput el
     echo
 
     if test $exit_code -ne 0

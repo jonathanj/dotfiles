@@ -26,14 +26,29 @@
 (global-unset-key [swipe-left])
 (global-unset-key [swipe-right])
 
+;; Rebind C-f (evil-scroll-page-down) to a useful search.
+(define-key evil-normal-state-map (kbd "C-f") 'evil-avy-goto-char-timer)
+(define-key evil-insert-state-map (kbd "C-f") 'evil-avy-goto-char-timer)
+(define-key evil-motion-state-map (kbd "C-f") 'evil-avy-goto-char-timer)
+
+;; Colemak motion keys.
+(define-key evil-normal-state-map (kbd "h") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd "j") 'evil-backward-char)
+(define-key evil-normal-state-map (kbd "k") 'evil-next-line)
+(define-key evil-normal-state-map (kbd "l") 'evil-forward-char)
+(define-key evil-motion-state-map (kbd "h") 'evil-previous-line)
+(define-key evil-motion-state-map (kbd "j") 'evil-backward-char)
+(define-key evil-motion-state-map (kbd "k") 'evil-next-line)
+(define-key evil-motion-state-map (kbd "l") 'evil-forward-char)
+
 (when (spacemacs/system-is-mac)
   (setq mac-command-modifier 'super)
 
   ;; Make Cmd movement keys work like the rest of macOS.
-  (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
-  (global-set-key (kbd "<s-right>") 'move-end-of-line)
-  (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
-  (global-set-key (kbd "<s-down>") 'end-of-buffer)
+  (global-set-key (kbd "s-left") 'move-beginning-of-line)
+  (global-set-key (kbd "s-right") 'move-end-of-line)
+  (global-set-key (kbd "s-up") 'beginning-of-buffer)
+  (global-set-key (kbd "s-down") 'end-of-buffer)
 
   ;; Killing a split/window is annoying, rather just kill the buffer.
   (global-set-key (kbd "s-w") 'spacemacs/kill-this-buffer)

@@ -45,10 +45,10 @@
   (setq mac-command-modifier 'super)
 
   ;; Make Cmd movement keys work like the rest of macOS.
-  (global-set-key (kbd "s-left") 'move-beginning-of-line)
-  (global-set-key (kbd "s-right") 'move-end-of-line)
-  (global-set-key (kbd "s-up") 'beginning-of-buffer)
-  (global-set-key (kbd "s-down") 'end-of-buffer)
+  (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
+  (global-set-key (kbd "<s-right>") 'move-end-of-line)
+  (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+  (global-set-key (kbd "<s-down>") 'end-of-buffer)
 
   ;; Killing a split/window is annoying, rather just kill the buffer.
   (global-set-key (kbd "s-w") 'spacemacs/kill-this-buffer)

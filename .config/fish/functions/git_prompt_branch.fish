@@ -1,5 +1,6 @@
+# Defined in /var/folders/br/tfxpk7t13_14zmhw4q620_680000gn/T//fish.IU5axE/git_prompt_branch.fish @ line 2
 function git_prompt_branch --description 'Output git branch information'
-  set -l is_git_repository (git rev-parse --is-inside-work-tree ^/dev/null)
+	set -l is_git_repository (git rev-parse --is-inside-work-tree ^/dev/null)
 
   # Print the current git branch name or shortened commit hash in colour.
   #
@@ -55,10 +56,10 @@ function git_prompt_branch --description 'Output git branch information'
 
 
       # Print a "stack symbol" if there are stashed changes.
-      if test (git stash list | wc -l) -gt 0
-          set_color --bold black
-          echo -n " ☰"
-      end
+      #if test (git stash list | wc -l) -gt 0
+      #    set_color --bold black
+      #    echo -n " ☰"
+      #end
 
       set_color normal
   end
